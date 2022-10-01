@@ -10,8 +10,8 @@ Listens to events (Transfer, Burn, Mint) on USDC contract on ETH mainnet and sen
 
 ```bash
 cd generation && yarn
-touch .evn # Add env vars
-tsc && node dist/index.js
+touch .env # Add env vars
+npm run dev
 ```
 
 ## Visualisation

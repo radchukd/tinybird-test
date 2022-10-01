@@ -22,7 +22,7 @@ const TransfersToUNINFTPosChart = () => {
 
   return (
     <>
-      <h1 className="text-3xl font-bold mt-10 mb-6">
+      <h1 className="text-3xl font-bold mb-6">
         Transferred usdc to Uniswap V3: Positions NFT (UNI-V3-POS)
       </h1>
 

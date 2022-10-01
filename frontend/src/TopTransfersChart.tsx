@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from "recharts";
 
-const url = new URL(`https://api.tinybird.co/v0/pipes/TRANSFERS_BY_HOUR.json`);
+const url = new URL(`https://api.tinybird.co/v0/pipes/TOP_TRANSFERS.json`);
 
-const TransfersByHourChart = () => {
+const TopTransfersChart = () => {
   const [data, setData] = useState<any | null>(null);
 
   useEffect(() => {
     fetch(url, {
       headers: {
         Authorization:
-          "Bearer p.eyJ1IjogIjQwMDA1NGRhLTA5OGMtNDY2ZC1iNTk3LTcxNWJkYTA4YzRlOCIsICJpZCI6ICI2MjMwMmE4Ni1hNTNkLTRiYTctYmRjNS01ODFlYWJiNWU0NWIifQ.ykMHLCgbY1aLJg36TxazKHVssOG64Tmi5OBbpYBPcFU",
+          "Bearer p.eyJ1IjogIjQwMDA1NGRhLTA5OGMtNDY2ZC1iNTk3LTcxNWJkYTA4YzRlOCIsICJpZCI6ICI5ZWU3NGY0YS0wM2ZmLTQwYzYtOWZkYy02M2NjN2MwZGYyYTEifQ.23-g_BdSOgguoe3XGQh7Cidc-x1gGYESPLm0LvT0uAs",
       },
     })
       .then((r) => r.json())
@@ -22,12 +22,10 @@ const TransfersByHourChart = () => {
 
   return (
     <>
-      <h1 className="text-3xl font-bold mb-6">
-        Transferred usdc volume per hour (01.10.2022)
-      </h1>
+      <h1 className="text-3xl font-bold mb-6">Top transferred to addresses</h1>
 
       <BarChart width={500} height={400} data={data.data}>
-        <XAxis dataKey="hour" />
+        <XAxis dataKey="to" />
         <YAxis />
         <Tooltip />
         <Bar dataKey="amount" fill="#82ca9d" />
@@ -36,4 +34,4 @@ const TransfersByHourChart = () => {
   );
 };
 
-export default TransfersByHourChart;
+export default TopTransfersChart;
